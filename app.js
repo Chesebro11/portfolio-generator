@@ -1,21 +1,24 @@
 const profileDataArgs = process.argv.slice(2, process.argv.length);
+const [name, github] = profileDataArgs;
 
-// forEach is the same as for loops to iterate through things however it looks cleaner and meant specifically for arrays
+const generatePage = (userName, githubName) => {
+    return `
+    <!DOCTYPE html> 
+  <html lang="en"> 
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Portfolio Demo</title>
+  </head>
 
+  <body>
+    <h1>${name}</h1>
+    <h2><a href="https://github.com/${github}">Github</a></h2>
+  </body>
+  </html>
+    `;
+}
 
-
-
-
-
-const printProfileData = profileDataArr => {
-    // This
-    for (let i = 0; i < profileDataArr.length; i += 1) {
-        console.log(profileDataArr[i]);
-    }
-    console.log('=================');
-
-    // Is the same as this
-    profileDataArr.forEach(prfileItem => console.log(profileItem));
-    };
-
-printProfileData(profileDataArgs);
+console.log(name, github);
+console.log(generatePage(name, github));
